@@ -27,6 +27,13 @@ function draw() {
     box(200, 200, 200);
 }
 
+// according to https://github.com/processing/p5.js/issues/5486
+// this should make it work on more phones (will require a touch on the screen first)
+function mousePressed() {
+    DeviceOrientationEvent.requestPermission();
+    DeviceMotionEvent.requestPermission();
+}
+
 // this function is called when the phone is shaken beyond the setShakeThreshold value
 function deviceShaken() {
     // don't continue if the phone hasn't been shaken long enough
